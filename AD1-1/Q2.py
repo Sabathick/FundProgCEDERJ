@@ -29,5 +29,5 @@ for i in range(qtdValoresTeste):
 
 for i in range(qtdTestes):
     print("Teste "+str(i)+":")
-    print("Abaixo do Intervalo: "+str(abaixo)+", No intervalo: "+str(dentro)+",\n Acima do Intervalo: "+str(acima)+".")
-    print("Soma dos Valores Dentro do Intervalo: "+str(soma))
+    print("     Abaixo do Intervalo: "+str(abaixo)+", No intervalo: "+str(dentro)+",\n Acima do Intervalo: "+str(acima)+".")
+    print("     Soma dos Valores Dentro do Intervalo: "+str(soma))

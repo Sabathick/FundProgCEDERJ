@@ -1,16 +1,12 @@
-def separa_nome():
-    lista_nomes = []
-    nomes_separados = []
-    sobrenomes_separados= []
-    qtd = int(input("Digite a quantidade de nomes: "))
-    for nome in range(qtd):
-        nome = input("Digite o nome completo: ")
-        lista_nomes = nome.split(' ')
-        nomes_separados.append(lista_nomes[0])
-        sobrenomes_separados.append(lista_nomes[len(lista_nomes)-1])
-        lista_nomes = []
-    for i in nomes_separados:
-        print(nomes_separados[i]+" "+sobrenomes_separados[i])
-    
+# AP1X - Q2
+# Subprograma
+def processaNome(lida):
+    partesDoNome = lida.split()
+    print(partesDoNome[0], partesDoNome[len(partesDoNome)-1])
+    return None
 
-separa_nome()
+# Programa Principal
+qtdNomes = int(input())
+for i in range(qtdNomes):
+    nomeCompleto = input()
+    processaNome(nomeCompleto)

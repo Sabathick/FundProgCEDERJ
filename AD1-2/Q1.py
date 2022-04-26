@@ -1,6 +1,35 @@
-#A partir de um valor n, fazer sequências dos valores de 1 a n em que cada valor aparece duas vezes
-#A sequência deve respeitar i+X+1 para o primeiro elemento x que aparecer na posição i
-#Imprimir a quantidade Q de sequências possíveis
+count = 0
 
-n = int(input("Digite um valor inteiro: "))
 
+def sequencias(seq, x, n):
+    global count
+    if x > n:
+        print(seq)
+        count += 1
+        return
+    for i in range(2*n):
+        if seq[i] == -1 and (i + x + 1) < 2*n and seq[i + x + 1] == -1:
+            seq[i] = x
+            seq[i + x + 1] = x
+            sequencias(seq, x + 1, n)
+            seq[i] = -1
+            seq[i + x + 1] = -1
+
+
+def main():
+    n = int(input())
+
+    seq = []
+    for j in range(2*n):
+        seq.append(-1)
+
+    x = 1
+    sequencias(seq, x, n)
+
+    if count == 0:
+        print(f"Não há sequências possíveis com o valor {n} de entrada")
+    else:
+        print(f"Há {count} sequências")
+
+
+main()

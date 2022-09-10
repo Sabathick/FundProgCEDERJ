@@ -1,11 +1,23 @@
-def maior_que(linhas):
-    ordem = []
-    for i in linhas:
-        numeros = input("Digite os valores desta linha:")
-        if numeros != "":
-            ordem.append(map(int, numeros.split()))
-            print("Menor Número: "+min(ordem)+" e Maior Número: "+max(ordem))
-        else:
-            print("Nenhum número foi lido, portanto, sem mínimo e máximo!!")
+def converte(s):
+    numeros = []
+    numerosParaSeparar = s.split()
+    for n in numerosParaSeparar:
+        numeros.append(int(n))
+    return numeros
 
-maior_que()
+qtdLinhas = int(input("Digite o número de linhas: "))
+if qtdLinhas == 0:
+    print("Nenhum número foi lido, portanto, sem mínimo e máximo")
+else:
+    menor = maior = None
+    for posLinha in range(qtdLinhas):
+        entrada = input("Digite os números da linha: ")
+        numeros = converte(entrada)
+        for valor in numeros:
+            if menor == maior == None:
+                menor = maior = valor
+            elif valor < menor:
+                menor = valor
+            elif valor > maior:
+                maior = valor
+    print("Menor Número: %d e Maior Número: %d" %(menor, maior))

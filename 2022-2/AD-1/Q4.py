@@ -1,26 +1,25 @@
-def verifica_inteiro(b, exp):
-    if type(b) and type(exp) != int:
-        print("Base "+b+" e expoente "+exp+" não estão no formato devido")
-        return False
-    elif type(exp) != int:
-        print("Expoente "+exp+ " não está no formato devido")
-        return False
-    elif type(b) != int:
-        print("Base " + b +" não está no formato devido")
-        return False
+def expoencial(b, exp):
+    if exp == 0:
+        return 1
     else:
+        return b*expoencial(b,exp-1)
+
+def verifica_inteiro(numero):
+    try:
+        int(numero)
         return True
-def exponencial(b, exp):
-    if verifica_inteiro(b,exp) == True:
-         if exp == 0:
-            return 1
-    
-    return b * b(exp - 1)
+    except ValueError:
+        return False
 
-def main():
-    b = input("Insira o valor da Base: ")
-    exp = input("Insira o valor do expoente: ")
-    if exponencial(b,exp) != "":
-        print(b+" elevado a "+exp+" é igual a" +exponencial(a,exp))
+base = input("Insira o valor: ")
+potencia = input("Insira o expoente: ")
 
-main()
+if verifica_inteiro(base) and verifica_inteiro(potencia):
+    result = expoencial(int(base), int(potencia))
+    print(f"{base} elevado a {potencia} é igual a {result}")
+elif verifica_inteiro(base) is False and verifica_inteiro(potencia) is False:
+    print(f"Base {base} e expoente {potencia} não estão no formato devido")
+elif verifica_inteiro(base) is False:
+    print(f"Base {base} não está no formato devido")
+else:
+    print(f"Expoente {potencia} não está no formato devido")

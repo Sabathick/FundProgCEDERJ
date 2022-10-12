@@ -1,6 +1,11 @@
 entrada=input("Entre com o nome do arquivo: ")
-arquivo=open("entrada")
-linhas = arquivo.readlines()
+def abrir(arquivo):
+    arquivo=open("entrada")
+    linhas = []
+    for linha in arquivo:
+        linhas.append(linha)
+    arquivo.close()
+    return linhas
 
 def mostrar_conteudo(linhas):
     print("Conteúdo do arquivo: "+entrada)
@@ -23,6 +28,6 @@ def remove_conteudo(linhas):
     for linha in linhas:
         print(linha)
     
-mostrar_conteudo(linhas)
-media_conteudo(linhas)
-remove_conteudo(linhas)
+mostrar_conteudo(abrir(entrada))
+media_conteudo(abrir(entrada))
+remove_conteudo(abrir(entrada))
